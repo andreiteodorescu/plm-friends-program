@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="HandheldFriendly" content="true" />
+    <title>Ploom Friends Program</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="logo-wrapper">
+        <img
+          class="logo"
+          src="./assets/images/logo.png"
+          alt="Ploom"
+          width="96"
+        />
+      </div>
+
+      <div class="change-email-form">
+        <button type="button" class="ce-form-close" aria-label="Close"></button>
+        <img
+          src="./assets/images/banner.png"
+          alt="Ploom Friends Program banner - 40% reducere la un cartus For Ploom per comanda, perioada 11 mai - 21 iulie 2026"
+        />
+        <div class="ce-form-wrapper">
+          <form
+            name="changeEmailForm"
+            id="changeEmailForm"
+            action=""
+            novalidate
+          >
+            <p class="ce-form-text">
+              Pentru logarea se poate folosit adresa de email de JTI
+            </p>
+            <div class="ce-field-outter-wrapper">
+              <label class="ce-input-label" for="email">Email</label>
+              <div class="ce-field-wrapper" id="emailFieldWrapper">
+                <input
+                  class="ce-input-field"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="user@email.com"
+                  required
+                  autocomplete="email"
+                  aria-describedby="emailError"
+                />
+                <img
+                  class="ce-field-icon"
+                  src="./assets/images/ic-mail.svg"
+                  alt="Email icon"
+                  width="18"
+                  height="18"
+                />
+              </div>
+            </div>
+
+            <p class="color-error" id="emailError">
+              Adresa de email introdusă nu este validă
+            </p>
+            <button class="button btn-action" type="submit" name="submit">
+              Trimite
+            </button>
+          </form>
+          <div class="register-text">
+            <p>Nu ai cont? <a href="#" title="">Creeaza cont</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container-small">asdasdasd</div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/email-validation.js"></script>
+  </body>
+</html>
