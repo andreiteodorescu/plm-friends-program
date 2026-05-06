@@ -41,10 +41,44 @@
             novalidate
           >
             <p class="ce-form-text">
-              Pentru logarea se poate folosit adresa de email de JTI
+              Lorem ipsum dolor sit amet consectetur. Lectus eget.
             </p>
+            <div class="ce-field-outter-wrapper ce-field-outter-margin">
+              <label class="ce-input-label" for="fullName"
+                >Selecteaza nume si prenume</label
+              >
+              <div class="ce-field-wrapper">
+                <select
+                  class="ce-select-field"
+                  id="fullName"
+                  name="fullName"
+                  required
+                  aria-describedby="fullNameError"
+                >
+                  <option value="" disabled selected hidden>
+                    Nume Prenume
+                  </option>
+                  <option value="ion-popescu">Ion Popescu</option>
+                  <option value="maria-ionescu">Maria Ionescu</option>
+                  <option value="andrei-vasilescu">Andrei Vasilescu</option>
+                  <option value="elena-dumitrescu">Elena Dumitrescu</option>
+                  <option value="mihai-georgescu">Mihai Georgescu</option>
+                </select>
+                <img
+                  class="ce-select-arrow"
+                  src="./assets/images/ic-chevron-down.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <p class="color-error" id="fullNameError">Selectează un nume</p>
+            </div>
+
             <div class="ce-field-outter-wrapper">
-              <label class="ce-input-label" for="email">Email</label>
+              <label class="ce-input-label" for="email"
+                >Completeaza cu adresa de email folosita in crearea contului pe
+                ploom.ro</label
+              >
               <div class="ce-field-wrapper" id="emailFieldWrapper">
                 <input
                   class="ce-input-field"
@@ -69,15 +103,45 @@
             <p class="color-error" id="emailError">
               Adresa de email introdusă nu este validă
             </p>
+            <div class="ce-form-checks">
+              <div class="ce-form-checks-row">
+                <input type="checkbox" id="checkAge" name="checkAge" required />
+                <label for="checkAge"
+                  >Declar că am peste 18 ani și sunt consumator de produse care
+                  conțin nicotină.</label
+                >
+              </div>
+
+              <div class="ce-form-checks-row">
+                <input
+                  type="checkbox"
+                  id="checkInfoOwn"
+                  name="checkInfoOwn"
+                  required
+                />
+                <label for="checkInfoOwn"
+                  >Declar pe propria răspundere că informațiile furnizate sunt
+                  corecte, complete și îmi aparțin.</label
+                >
+              </div>
+
+              <div class="ce-form-checks-row">
+                <input
+                  type="checkbox"
+                  id="checkPersonalUse"
+                  name="checkPersonalUse"
+                  required
+                />
+                <label for="checkPersonalUse"
+                  >Inteleg că acest cod este destinat exclusiv uzului personal
+                  și poate fi utilizat doar de angajații JTI eligibili.</label
+                >
+              </div>
+            </div>
             <button class="button btn-action" type="submit" name="submit">
               Trimite
             </button>
           </form>
-          <div class="register-text">
-            <p>
-              <span>Nu ai cont?</span> <a href="#" title="">Creeaza cont</a>
-            </p>
-          </div>
         </div>
       </div>
     </div>
