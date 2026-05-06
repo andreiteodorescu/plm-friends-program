@@ -2637,11 +2637,29 @@ body {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-image: url("../assets/images/body-bg@1x.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > .container-fluid {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 130px;
+  padding-bottom: 60px;
+}
+
+@media (min-width: 501px) {
+  body {
+    background-image: url("../assets/images/body-bg@1x.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
 }
 
 @media (min-width: 1930px) {
@@ -2658,20 +2676,22 @@ body {
 
 .logo-wrapper {
   text-align: center;
-  padding-top: 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .change-email-form {
   background-color: #050f20;
   max-width: 530px;
   border-radius: 32px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   overflow: hidden;
   color: #fff;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .ce-form-close {
@@ -2700,7 +2720,7 @@ body {
 }
 
 .ce-form-wrapper {
-  padding: 5px 60px 60px;
+  padding: 5px 60px 50px;
 
   form {
     margin-bottom: 0;
@@ -2799,10 +2819,228 @@ input[type="email"].ce-input-field {
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
+  flex-shrink: 0;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: footerBand 0.6s ease 0.9s forwards;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeIn 0.4s ease 1.5s forwards;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+
+  li {
+    margin-bottom: 0;
+    position: relative;
+    padding-left: 6px;
+  }
+
+  li:first-child {
+    padding-left: 0;
+  }
+
+  li:first-child::before {
+    display: none;
+  }
+
+  li::before {
+    content: "";
+    width: 1px;
+    height: 10px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 10px;
+  }
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.footer-links a:hover {
+  text-decoration: none;
+}
+
+.logo,
+.change-email-form {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUp 0.7s ease forwards;
+}
+
+.logo {
+  animation-delay: 0s;
+}
+
+.change-email-form {
+  animation-delay: 0.3s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes footerBand {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .change-email-form,
+  .footer::before,
+  .footer-inner {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mobile-logo-in {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer {
+    padding: 15px 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+
+  .footer-text {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .footer-text span {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .ce-form-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: #050f20;
+  }
+
+  body > .container-fluid {
+    padding-top: 100px;
+    padding-bottom: 40px;
+    justify-content: flex-start;
+  }
+
+  .ce-form-text {
+    margin-bottom: 25px;
+  }
+
+  .change-email-form {
+    overflow: initial;
+    border-radius: 0;
+  }
+
+  .ce-form-wrapper {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0;
+    padding-top: 10px;
+  }
+
+  .register-text {
+    margin-top: 20px;
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .ce-field-outter-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .ce-field-wrapper {
+    height: 36px;
+  }
+
+  .ce-input-label {
+    font-size: 11px;
+  }
+
+  .ce-input-field,
+  input[type="email"].ce-input-field {
+    padding-block: 7px;
+    font-size: 14px;
+    padding-left: 10px;
+  }
+
+  .ce-field-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-action {
+    height: 36px;
+    font-size: 14px;
+    padding-block: 5px;
+  }
 }
